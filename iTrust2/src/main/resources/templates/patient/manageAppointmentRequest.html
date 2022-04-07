@@ -115,7 +115,6 @@
 					$scope.appointment = {};
 					$scope.hcps = [];
 					$scope.selectedAppointment = {};
-					$scope.patient = {};
 					
 					// Load pending appointments
 					$scope.loadPendingAppointments();
@@ -292,7 +291,7 @@
 					$scope.showMessage = false;
 					$scope.errorList = [];
 					$scope.errorMsg = "";
-					$scope.appointment.patient = {};
+
 
 					// Validate request date
 					var date = new Date($scope.inputDate);
@@ -345,7 +344,6 @@
 		            	
 		            	// Construct correct object for a vaccine appointment request
 		            	const appointmentObject = {
-		            			patient: $scope.appointment.patient,
 		            			hcp: $scope.appointment.hcp,
 		            			date: $scope.appointment.date,
 		            			type: $scope.appointment.type,
@@ -388,7 +386,6 @@
 		            	// Construct correct object for a non-vaccine appointment request
 		            	const appointmentObject = {
 		            			status: "PENDING",
-		            			patient: $scope.appointment.patient,
 		            			hcp: $scope.appointment.hcp,
 		            			date: $scope.appointment.date,
 		            			type: $scope.appointment.type,
