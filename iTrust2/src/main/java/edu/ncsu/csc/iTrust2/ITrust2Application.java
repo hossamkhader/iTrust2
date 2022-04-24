@@ -1,6 +1,8 @@
 package edu.ncsu.csc.iTrust2;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +16,7 @@ import edu.ncsu.csc.iTrust2.config.SchemaValidateIntegrator;
  *
  */
 @SpringBootApplication ( scanBasePackages = { "edu.ncsu.csc.iTrust2" } )
-public class ITrust2Application {
+public class ITrust2Application extends SpringBootServletInitializer {
 
     /**
      * Main method
@@ -41,4 +43,10 @@ public class ITrust2Application {
             prop.put( "hibernate.integrator_provider", schemaValidateIntegrator );
         } );
     }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(ITrust2Application.class);
+    }
+
 }
